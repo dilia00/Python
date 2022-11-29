@@ -1,0 +1,95 @@
+# 1. Реализуйте алгоритм задания случайных чисел
+# без использования встроенного генератора псевдослучайных чисел.
+# import time
+import time
+
+
+def my_random(max_: int):
+    a = time.time()
+    temp = round(a) % max_
+    return temp
+
+
+def my_random2(max_: int):
+    a = time.time()
+    temp = a*10000000
+    my_random_ = temp % max_
+    return round(my_random_)
+
+
+print(my_random(10))
+print(my_random2(7))
+
+
+def func_random():
+    try:
+        list_1 = []
+        a = 1
+        b = int(input('Введите количество элементов в списке: '))
+        while a <= b:
+            n = int(input('Введите магическое число:'))
+            if n != 0 or type(n) == [int]:
+                list_1.append(round((a / n) * 10))
+            a += 1
+        return list_1
+    except ValueError:
+        print("На ноль делить нельзя! или число вещественное")
+        return func_random()
+
+
+print(func_random())
+
+
+# 2. Задайте список. Напишите программу, которая определит, присутствует ли в заданном списке строк некое число.
+# ['sdf13', 'fds66', '34']
+# -> 3
+# 'sdf13', '34'
+
+def func(find_char):
+    new_list = []
+    list_a = ['sdf13', 'fds66', '34']
+    for i in list_a:
+        if find_char in i:
+            new_list.append(i)
+    return new_list
+
+
+print(func("3"))
+
+
+# 3. Напишите программу, которая определит позицию второго вхождения строки в списке либо сообщит, что её нет.
+
+# *Пример:*
+# - список: ["qwe", "asd", "zxc", "qwe", "ertqwe"], ищем: "qwe", ответ: 3
+# - список: ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"], ищем: "йцу", ответ: 5
+# - список: ["йцу", "фыв", "ячс", "цук", "йцукен"], ищем: "йцу", ответ: -1
+# - список: ["123", "234", 123, "567"], ищем: "123", ответ: -1
+# - список: [], ищем: "123", ответ: -1
+
+def fun():
+    list = ["qwe", "asd", "zxc", "qwe", "ertqwe"]
+    a = input('Введите число - ')
+    count = 0
+    for k in range(len(list)):
+        if list[k] == a:
+            count += 1
+            if count == 2:
+                return k
+    return -1
+
+
+fun()
+
+
+def func_1(find_char):
+    list_a = ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"]
+    new_list = []
+    for i in range(len(list_a)):
+        if find_char == list_a[i]:
+            new_list.append(i)
+    if len(new_list) <= 1:
+        return -1
+    return new_list[1]
+
+
+print(func_1("йцу"))
