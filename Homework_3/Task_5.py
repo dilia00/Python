@@ -3,34 +3,34 @@
 # - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] [Негафибоначчи]
 
 
-number = int(input("Введите число: "))
+# number = int(input("Введите число: "))
 
-list_fib = []
-
-
-def fibonacci_neg(n):
-    if (n == 0 or n == 1):
-        return 1
-    else:
-        return fibonacci_neg(n+2) - fibonacci_neg(n+1)
+# list_fib = []
 
 
-def fibonacci(num):
-    if (num == 1 or num == 2):
-        return 1
-    else:
-        return fibonacci(num - 1) + fibonacci(num - 2)
+# def fibonacci_neg(n):
+#     if (n == 0 or n == 1):
+#         return 1
+#     else:
+#         return fibonacci_neg(n+2) - fibonacci_neg(n+1)
 
 
-for i in range(number-1, -1):
-    list_fib.append(fibonacci_neg(i))
+# def fibonacci(num):
+#     if (num == 1 or num == 2):
+#         return 1
+#     else:
+#         return fibonacci(num - 1) + fibonacci(num - 2)
 
-number *= -1
-list_fib.append(0)
 
-for j in range(1, number+1):
-    list_fib.append(fibonacci(j))
-print(list_fib)
+# for i in range(number-1, -1):
+#     list_fib.append(fibonacci_neg(i))
+
+# number *= -1
+# list_fib.append(0)
+
+# for j in range(1, number+1):
+#     list_fib.append(fibonacci(j))
+# print(list_fib)
 
 
 # Вторй способ
@@ -58,7 +58,7 @@ list_fibonacci = fibonacci(number_)
 def fibonacci_neg(numb, list_f):
     list_fib_neg = []
     for x in range(numb, 0):
-        resalt = pow((-1), (numb+1)) * list_f[x]
+        resalt = pow((-1), (x+1)) * list_f[x]
         list_fib_neg.append(round(resalt))
     return list_fib_neg
 
